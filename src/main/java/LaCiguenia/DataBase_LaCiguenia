@@ -4,8 +4,8 @@ USE la_ciguenia;
 
 CREATE TABLE login_usuario (
 	login_id INT PRIMARY KEY AUTO_INCREMENT,
-    logi_email VARCHAR(50),
-    logi_password VARCHAR(50)
+    login_email VARCHAR(50),
+    login_password VARCHAR(50)
 );
 
 SELECT * FROM login_usuario;

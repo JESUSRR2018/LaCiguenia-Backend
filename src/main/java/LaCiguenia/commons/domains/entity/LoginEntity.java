@@ -16,9 +16,9 @@ public class LoginEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
 
-    @Column(name = "logi_email")
+    @Column(name = "login_email")
     private String usuarioEmail;
 
-    @Column(name = "logi_password")
+    @Column(name = "login_password")
     private String usuarioPassword;
 }
