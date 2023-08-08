@@ -1,7 +1,8 @@
 package LaCiguenia.commons.domains.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
-import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,9 +16,9 @@ public class LoginEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
 
-    @Column(name = "login_nombre")
-    private String  usuarioNombre;
-
-    @Column(name = "logi_email")
+    @Column(name = "login_email")
     private String usuarioEmail;
+
+    @Column(name = "login_password")
+    private String usuarioPassword;
 }

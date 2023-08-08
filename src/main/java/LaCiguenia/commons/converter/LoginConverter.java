@@ -16,9 +16,9 @@ public class LoginConverter {
         LoginDTO loginDTO = new LoginDTO();
         try {
             loginDTO = HelperMapper.modelMapper().map(loginEntity, LoginDTO.class);
-            byte[] cadenaDecodificadaByte = Base64.getDecoder().decode(loginEntity.getUsuarioNombre());
+            byte[] cadenaDecodificadaByte = Base64.getDecoder().decode(loginEntity.getUsuarioPassword());
             String cadenaDecodificada = new String(cadenaDecodificadaByte);
-            loginDTO.setUsuarioNombre(cadenaDecodificada);
+            loginDTO.setUsuarioPassword(cadenaDecodificada);
         } catch (Exception e) {
             log.error(ILoginResponse.DOCUMENT_FAIL + e);
         }
@@ -29,8 +29,8 @@ public class LoginConverter {
         LoginEntity loginEntity = new LoginEntity();
         try {
             loginEntity = HelperMapper.modelMapper().map(loginDTO, LoginEntity.class);
-            loginEntity.setUsuarioNombre(
-                    Base64.getEncoder().encodeToString(loginDTO.getUsuarioNombre().getBytes()));
+            loginEntity.setUsuarioPassword(
+                    Base64.getEncoder().encodeToString(loginDTO.getUsuarioPassword().getBytes()));
         } catch (Exception e) {
             log.error(ILoginResponse.DOCUMENT_FAIL + e);
         }

@@ -1,0 +1,12 @@
+CREATE DATABASE la_ciguenia;
+
+USE la_ciguenia;
+
+CREATE TABLE login_usuario (
+	login_id INT PRIMARY KEY AUTO_INCREMENT,
+    login_email VARCHAR(50),
+    login_password VARCHAR(50)
+);
+
+SELECT * FROM login_usuario;
+DELETE FROM login_usuario WHERE login_id = 1;

@@ -42,9 +42,9 @@ public class LoginApi implements ILoginApi {
                     content = {@Content(mediaType = "application/json")}),
             @ApiResponse(responseCode  = "500", description = ILoginResponse.INTERNAL_SERVER,
                     content = {@Content(mediaType = "application/json")})})
-    @GetMapping(ILoginEndPoint.LOGIN)
+    @GetMapping(ILoginEndPoint.LOGIN_SERVICE)
     public ResponseEntity<GenericResponseDTO> loginService(LoginDTO loginDTO) {
-        return null;
+        return this.iLoginService.loginService(loginDTO);
     }
 
     @Override
@@ -60,6 +60,7 @@ public class LoginApi implements ILoginApi {
                     content = {@Content(mediaType = "application/json")})})
     @PostMapping(ILoginEndPoint.CREATE_ACOUNT)
     public ResponseEntity<GenericResponseDTO> saveLogin(LoginDTO loginDTO) {
+        System.out.println("Prueba Entrada " + loginDTO.getUsuarioPassword());
         return iLoginService.saveLogin(loginDTO);
     }
 }

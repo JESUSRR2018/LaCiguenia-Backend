@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.Base64;
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -27,16 +29,49 @@ public class LoginService implements ILoginService {
 
     @Override
     public ResponseEntity<GenericResponseDTO> loginService(LoginDTO loginDTO) {
-        return null;
+        try {
+            List<LoginEntity> usuarios = iLoginRepository.findByUsuarioEmail(loginDTO.getUsuarioEmail());
+            if (!usuarios.isEmpty()) {
+                for (LoginEntity usuario : usuarios) {
+                    LoginDTO usuarioDecode = loginConverter.convertLoginEntityToLoginDTO(usuario);
+                    if (usuarioDecode.getUsuarioPassword().equals(loginDTO.getUsuarioPassword())) {
+                        return ResponseEntity.ok(GenericResponseDTO.builder()
+                                .message("Operacion exitosa")
+                                .objectResponse("Usuario autenticado correctamente")
+                                .statusCode(HttpStatus.OK.value())
+                                .build());
+                    }
+                }
+                return ResponseEntity.badRequest().body(GenericResponseDTO.builder()
+                        .message("Contraseña incorrecta")
+                        .objectResponse(null)
+                        .statusCode(HttpStatus.BAD_REQUEST.value())
+                        .build());
+            } else {
+                return ResponseEntity.badRequest().body(GenericResponseDTO.builder()
+                        .message("Error usuario no encontrado")
+                        .objectResponse(null)
+                        .statusCode(HttpStatus.BAD_REQUEST.value())
+                        .build());
+            }
+        } catch (Exception e) {
+            log.error("Ha ocurrido un error interno", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(GenericResponseDTO.builder()
+                    .message("Error interno del servidor")
+                    .objectResponse(null)
+                    .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                    .build());
+        }
     }
 
     @Override
     public ResponseEntity<GenericResponseDTO> saveLogin(LoginDTO loginDTO) {
-        LoginEntity loginEntity = new LoginEntity();
-        Optional<LoginEntity> existeLogin;
         try {
+            Optional<LoginEntity> existeLogin;
             existeLogin = iLoginRepository.findById(loginDTO.getIdUsuario());
             if(!existeLogin.isPresent()){
+                LoginEntity loginEntity = loginConverter.convertLoginDTOToLoginEntity(loginDTO);
                 iLoginRepository.save(loginEntity);
                 return new ResponseEntity<>(GenericResponseDTO.builder()
                         .message(ILoginResponse.CREATE_SUCCESS)

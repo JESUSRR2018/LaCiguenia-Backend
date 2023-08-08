@@ -12,7 +12,7 @@ import lombok.*;
 @Builder
 public class LoginDTO implements Serializable {
 
-    private Integer   idUsuario;
-    private String    usuarioNombre;
-    private String    usuarioEmail;
+    private Integer idUsuario;
+    private String usuarioEmail;
+    private String usuarioPassword;
 }
