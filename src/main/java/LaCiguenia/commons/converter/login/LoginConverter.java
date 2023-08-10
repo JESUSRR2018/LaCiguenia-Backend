@@ -1,8 +1,8 @@
-package LaCiguenia.commons.converter;
+package LaCiguenia.commons.converter.login;
 
-import LaCiguenia.commons.constans.response.ILoginResponse;
-import LaCiguenia.commons.domains.dto.LoginDTO;
-import LaCiguenia.commons.domains.entity.LoginEntity;
+import LaCiguenia.commons.constans.response.login.ILoginResponse;
+import LaCiguenia.commons.domains.dto.login.LoginDTO;
+import LaCiguenia.commons.domains.entity.login.LoginEntity;
 import LaCiguenia.commons.helpers.HelperMapper;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;

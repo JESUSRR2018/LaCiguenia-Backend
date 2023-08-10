@@ -1,4 +1,4 @@
-package LaCiguenia.commons.domains.dto;
+package LaCiguenia.commons.domains.dto.login;
 
 import java.io.Serializable;
 import lombok.*;

@@ -1,6 +1,6 @@
-package LaCiguenia.repository;
+package LaCiguenia.repository.login;
 
-import LaCiguenia.commons.domains.entity.LoginEntity;
+import LaCiguenia.commons.domains.entity.login.LoginEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

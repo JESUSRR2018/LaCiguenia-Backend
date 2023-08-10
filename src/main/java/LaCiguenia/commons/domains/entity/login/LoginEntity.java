@@ -1,4 +1,4 @@
-package LaCiguenia.commons.domains.entity;
+package LaCiguenia.commons.domains.entity.login;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "login_usuario")
+@Table(name = "login_ciguenia")
 public class LoginEntity {
     @Id
     @Column(name = "login_id")

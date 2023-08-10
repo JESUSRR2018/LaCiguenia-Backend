@@ -1,4 +1,4 @@
-package LaCiguenia.commons.constans.response;
+package LaCiguenia.commons.constans.response.login;
 
 public interface ILoginResponse {
     String OPERATION_SUCCESS = "Operación exitosa";
