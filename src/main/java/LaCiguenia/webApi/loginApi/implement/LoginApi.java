@@ -1,11 +1,11 @@
 package LaCiguenia.webApi.loginApi.implement;
 
 
-import LaCiguenia.commons.constans.endpoints.ILoginEndPoint;
-import LaCiguenia.commons.constans.response.ILoginResponse;
-import LaCiguenia.commons.domains.dto.LoginDTO;
+import LaCiguenia.commons.constans.endpoints.login.ILoginEndPoint;
+import LaCiguenia.commons.constans.response.login.ILoginResponse;
+import LaCiguenia.commons.domains.dto.login.LoginDTO;
 import LaCiguenia.commons.domains.dto.responseDTO.GenericResponseDTO;
-import LaCiguenia.service.serviceLogin.ILoginService;
+import LaCiguenia.service.login.ILoginService;
 import LaCiguenia.webApi.loginApi.ILoginApi;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

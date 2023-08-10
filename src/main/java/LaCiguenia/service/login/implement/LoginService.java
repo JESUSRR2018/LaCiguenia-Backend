@@ -1,19 +1,18 @@
-package LaCiguenia.service.serviceLogin.implement;
+package LaCiguenia.service.login.implement;
 
-import LaCiguenia.commons.constans.response.ILoginResponse;
-import LaCiguenia.commons.converter.LoginConverter;
-import LaCiguenia.commons.domains.dto.LoginDTO;
+import LaCiguenia.commons.constans.response.login.ILoginResponse;
+import LaCiguenia.commons.converter.login.LoginConverter;
+import LaCiguenia.commons.domains.dto.login.LoginDTO;
 import LaCiguenia.commons.domains.dto.responseDTO.GenericResponseDTO;
-import LaCiguenia.commons.domains.entity.LoginEntity;
-import LaCiguenia.repository.ILoginRepository;
-import LaCiguenia.service.serviceLogin.ILoginService;
+import LaCiguenia.commons.domains.entity.login.LoginEntity;
+import LaCiguenia.repository.login.ILoginRepository;
+import LaCiguenia.service.login.ILoginService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 

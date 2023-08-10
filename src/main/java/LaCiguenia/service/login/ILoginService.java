@@ -1,6 +1,6 @@
-package LaCiguenia.service.serviceLogin;
+package LaCiguenia.service.login;
 
-import LaCiguenia.commons.domains.dto.LoginDTO;
+import LaCiguenia.commons.domains.dto.login.LoginDTO;
 import LaCiguenia.commons.domains.dto.responseDTO.GenericResponseDTO;
 import org.springframework.http.ResponseEntity;
 

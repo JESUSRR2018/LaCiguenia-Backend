@@ -1,4 +1,4 @@
-package LaCiguenia.commons.constans.endpoints;
+package LaCiguenia.commons.constans.endpoints.login;
 
 public interface ILoginEndPoint {
     String BASE_URL_LOGIN = "/Login-conexion-web/api-login/endpoint/login";
